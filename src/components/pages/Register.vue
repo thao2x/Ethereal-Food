@@ -91,7 +91,10 @@
                   </div>
                   <div class="row">
                     <div class="col-md-12 form-group p-3">
-                      <p>Have an account? <a href="http://localhost:8080/#/login">Sign In</a></p>
+                      <p>
+                        Have an account?
+                        <a href="http://localhost:8080/#/login">Sign In</a>
+                      </p>
                     </div>
                   </div>
                 </form>
@@ -114,7 +117,7 @@ export default {
   },
   computed: {},
   watch: {},
-  methods: {},
+  methods: {}
 };
 </script>
 <style scoped>
@@ -155,29 +158,29 @@ section {
   color: var(--white-color);
 }
 .p-3 {
-    padding: 8px!important;
+  padding: 8px !important;
 }
-.form-group a{
-  color: #1AC073;
+.form-group a {
+  color: #1ac073;
 }
 .row {
   margin-right: 0 !important;
   margin-left: 0 !important;
 }
-.checkbox{
+.checkbox {
   display: flex;
   gap: 15px;
   padding-left: 8px;
 }
-.checkbox__tick{
+.checkbox__tick {
   width: 20px;
   height: 20px;
   border-radius: 5px;
-  background-color: #F0FAF7 !important;
+  background-color: #f0faf7 !important;
 }
 .checkbox__text {
-    display: flex;
-    align-items: center;
-    color: #1AC073;
+  display: flex;
+  align-items: center;
+  color: #1ac073;
 }
 </style>

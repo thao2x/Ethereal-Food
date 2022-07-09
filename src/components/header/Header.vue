@@ -9,7 +9,7 @@
         <div class="menu col-lg-6">
           <ul class="nav justify-content-center">
             <li class="nav-item">
-              <a class="nav-link active p-3" href="#">Home</a>
+              <a class="nav-link active p-3" href="http://localhost:8080/#/home">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link p-3" href="#">About</a>

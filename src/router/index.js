@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/components/pages/Login'
 import Register from '@/components/pages/Register'
+import Home from '@/components/pages/Home'
 import Main from '../views/main'
 Vue.use(Router)
 
@@ -15,7 +16,7 @@ export default new Router({
 	- The redirect property defines the route that will be rendered when the path is empty. */
 	routes: [
 	{
-		path: '/',
+		path: '/home',
 		component: Main,
 		children: [
 		{
@@ -27,6 +28,11 @@ export default new Router({
 			path: '/register', ///path của route
 			name: 'register', // tên route
 			component: Register // component route sử dụng
+		},
+		{
+			path: '/home', ///path của route
+			name: 'home', // tên route
+			component: Home // component route sử dụng
 		},
 		]
 	},

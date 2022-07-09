@@ -121,7 +121,10 @@
                   fill="#1AC073"
                 ></path>
               </svg>
-              <p>1 Ngũ Hành Sơn, Bắc Mỹ Phú,<br> Ngũ Hành Sơn, Đà Nẵng.</p>
+              <p>
+                1 Ngũ Hành Sơn, Bắc Mỹ Phú,<br />
+                Ngũ Hành Sơn, Đà Nẵng.
+              </p>
             </div>
           </div>
         </div>
@@ -221,9 +224,14 @@ p.footer__text {
   color: #b4bdbc;
 }
 .footer__layouts {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+@media (min-width: 545px) and (max-width: 700px) {
+  .footer-content {
+    width: 95%;
+  }
 }
 </style>

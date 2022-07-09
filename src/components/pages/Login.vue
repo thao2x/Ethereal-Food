@@ -139,9 +139,9 @@ section {
   background-color: #F0FAF7 !important;
 }
 .checkbox__text {
-    display: flex;
-    align-items: center;
-    color: #1AC073;
+  display: flex;
+  align-items: center;
+  color: #1AC073;
 }
 
 </style>
