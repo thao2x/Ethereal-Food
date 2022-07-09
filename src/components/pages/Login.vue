@@ -8,7 +8,7 @@
             <div class="login">
               <div class="login__title">
                 <h3>Sign in</h3>
-                <p>Sign in and start your food adventure! </p>
+                <p>Sign in and start your food adventure!</p>
               </div>
               <div class="login__form">
                 <form action="">
