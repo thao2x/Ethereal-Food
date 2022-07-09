@@ -1,4 +1,4 @@
-# hanet
+# Ethereal
 
 > A Vue.js project
 
