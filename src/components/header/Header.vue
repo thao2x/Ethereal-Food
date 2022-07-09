@@ -4,7 +4,7 @@
     <div class="main-header">
       <div class="row align-items-center part-menu">
         <div class="logo col-lg-3">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/OneWeb_Logo.png" width="150" alt="OneWeb_Logo">
+          <img src="../../assets/images/logo.png" width="150" alt="OneWeb_Logo">
         </div>
         <div class="menu col-lg-6">
           <ul class="nav justify-content-center">
@@ -68,6 +68,9 @@ background-color: #1AC073;
 position: fixed;
 width: 100%;
 z-index: 10;
+}
+img {
+    width: 25%;
 }
 .part-menu{
 height: 80px;
