@@ -50,6 +50,10 @@
 					</b-card>
 				</b-card-group>
 			</div>
+
+			<div class="button__more">
+				<button type="button" class="button__load" >+ Load more...</button>
+			</div>
 		</section>
 	</div>
 </template>
@@ -78,7 +82,7 @@
 <style scoped>
 .kitchen__section{
 	padding-top: 80px;
-	padding-bottom: 50px;
+	padding-bottom: 40px;
 	width: 80%;
 	margin: auto;
 }
@@ -124,5 +128,18 @@
 .cards__home {
 	width: 80%;
 	margin: auto;
+	padding-bottom: 100px;
+}
+/* load more */
+.button__more{
+	padding-bottom: 50px;
+}
+.button__load{
+	padding: 13px 30px 13px 19px;
+	border: 1px solid #F3BA00;
+	border-radius: 10px;
+	font-size: 16px;
+	color: #929292;
+	background-color: #fff;
 }
 </style>
