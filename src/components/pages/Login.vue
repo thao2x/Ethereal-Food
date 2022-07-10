@@ -122,6 +122,7 @@ section {
 }
 .form-group a{
   color: #1AC073;
+  font-style: italic;
 }
 .row {
   margin-right: 0 !important;
@@ -142,6 +143,7 @@ section {
   display: flex;
   align-items: center;
   color: #1AC073;
+  font-style: italic;
 }
 
 </style>

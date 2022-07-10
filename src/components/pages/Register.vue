@@ -120,6 +120,7 @@ export default {
   methods: {}
 };
 </script>
+
 <style scoped>
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -162,6 +163,7 @@ section {
 }
 .form-group a {
   color: #1ac073;
+  font-style: italic;
 }
 .row {
   margin-right: 0 !important;
