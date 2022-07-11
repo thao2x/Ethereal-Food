@@ -6,10 +6,10 @@
           <div class="col-lg-6 title">
             <h1>
               Authentic local<br />
-              food in Tbay
+              food in Ethereal
             </h1>
             <p class="w-75">
-              TBayEAT is a courier service in which authentic home cook food is
+              Ethereal is a courier service in which authentic home cook food is
               delived to a customer
             </p>
             <form class="form-inline">

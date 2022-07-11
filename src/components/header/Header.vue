@@ -70,7 +70,7 @@ width: 100%;
 z-index: 10;
 }
 img {
-    width: 25%;
+    width: 84px;
 }
 .part-menu{
 height: 80px;
