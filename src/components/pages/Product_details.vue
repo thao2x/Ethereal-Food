@@ -94,6 +94,41 @@
                     </div>
                 </div>
             </div>
+
+            <h3>Other products from Ethereal Food</h3>
+
+            <div class="container-t">
+				<div class="product" v-for="(item, index) in items" :key="index" >
+					<!-- <div v-if="item.offsale!=0">
+						<div>{{item.offsale}}</div>
+					</div>  -->
+					<div class="product__img">
+						<img to="product_details" src="../../assets/images/home/unsplash_60nzTP7_hMQ.png" alt="">
+					</div>
+					<div class="product__desc">
+						<div class="product__desc__price">
+							<span>{{item.name}}</span>
+							<p>{{item.price}}</p>
+						</div>
+						<div class="product__desc__rate">
+							<div class="product__desc__rate__item">
+							<div class="item1">
+								<font-awesome-icon icon="fa-solid fa-star" /> 
+								<p>{{item.rate}}</p>
+							</div>
+							<div class="item1">
+								<p>{{item.time}}</p>
+							</div>
+							</div>
+							<div class="product__desc__rate__more">
+								<a >
+									<font-awesome-icon icon="fa-solid fa-plus" />
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
         </section>
     </div>
 </template>
@@ -107,7 +142,37 @@
                 { value: null, text: "Large" },
                 { value: "a", text: "Medium" },
                 { value: "b", text: "Small" },
-        ],
+            ],
+            items: [
+			{
+				image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
+				name: "Home made pizza", 
+				price: "$19",
+				rate: "4,7",
+				time: "50-79min"
+			},
+			{
+				image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
+				name: "Home made pizza", 
+				price: "$17",
+				rate: "5",
+				time: "50-60min"
+			},
+			{
+				image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
+				name: "Home made pizza", 
+				price: "$19",
+				rate: "4,7",
+				time: "50-79min"
+			},
+			{
+				image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
+				name: "Home made pizza", 
+				price: "$19",
+				rate: "4,7",
+				time: "50-79min"
+			},
+            ],
             }
         }
     }
@@ -453,4 +518,77 @@
 .product__details__tab .product__details__tab__desc p {
 	color: #666666;
 }
+.product-details h3{
+    padding-top: 80px;
+    padding-bottom: 50px;
+}
+/* product */
+	.container-t{
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+		width: 80%;
+		margin: auto;
+		gap: 30px;
+        padding-bottom: 80px;
+	}
+	.product {
+		width: 23%;
+	}
+	.product__img img {
+		width: 100%;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+	}
+	.product__desc {
+		height: auto;
+		padding: 20px 24px;
+		background-color: #fff;
+		border-bottom-right-radius: 10px;
+		border-bottom-left-radius: 10px;
+        background-color: #F7F8FA;
+	}
+	.product__desc__price{
+		display: flex;
+		justify-content: space-between;
+		height: 35px;
+		font-size: 20px;
+	}
+	.product__desc__rate {
+		display: flex;
+		justify-content: space-between;
+		height: 35px;
+		font-size: 14px;
+		align-items: center;
+	}
+	.product__desc__rate__more {
+		width: 22px;
+		height: 20px;
+		color: #fff;
+		background-color: #F3BA00;
+		border-radius: 5px;
+	}
+	.product__desc__rate__more a{
+		color: #fff;
+	}
+	.product__desc__rate__item {
+		gap: 15px;
+		display: flex;
+	}
+	.item1 {
+		height: 23px;
+		display: flex;
+		gap: 5px;
+		align-items: center;
+		padding: 5px;
+		background-color: #F7F8FA;
+		border: 1px solid #BEBEBE;
+		border-radius: 5px;
+	}
+	.item1 p{
+		margin-top: 4px !important;
+	}
+    p{
+		margin: 0;
+	}
 </style>
