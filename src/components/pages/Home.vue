@@ -16,41 +16,58 @@
 			</div>
 			</div>
 
-			<div class="container">
-				<div class="product">
+			<div class="container-t">
+				<div class="product" v-for="(item, index) in items" :key="index" >
+					<!-- <div v-if="item.offsale!=0">
+						<div>{{item.offsale}}</div>
+					</div>  -->
 					<div class="product__img">
-						<img src="https://static.hanet.ai/face/employee/8011/f9d38481-845e-406b-9969-74800c15f621.jpg" alt="">
+						<img src="../../assets/images/home/unsplash_60nzTP7_hMQ.png" alt="">
 					</div>
 					<div class="product__desc">
 						<div class="product__desc__price">
-							<span>pizza</span>
-							<p>$19</p>
+							<span>{{item.name}}</span>
+							<p>{{item.price}}</p>
 						</div>
 						<div class="product__desc__rate">
 							<div class="product__desc__rate__item">
 							<div class="item1">
 								<font-awesome-icon icon="fa-solid fa-star" /> 
-								<p>4.7</p>
+								<p>{{item.rate}}</p>
 							</div>
 							<div class="item1">
-								<p>75min</p>
+								<p>{{item.time}}</p>
 							</div>
 							</div>
 							<div class="product__desc__rate__more">
-								<font-awesome-icon icon="fa-solid fa-plus" />
+								<a href="/product_details">
+									<font-awesome-icon icon="fa-solid fa-plus" />
+								</a>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="container1">
-			<div class="item item-1" v-for="(item, index) in itemx" :key="index">
-				{{ item.number }}
-			</div>
+		
+			<div class="button__more">
+				<button type="button" class="button__load">+ Load more...</button>
 			</div>
 
-			<div class="button__more">
-			<button type="button" class="button__load">+ Load more...</button>
+			<div class="contact">
+				<div class="contact_decs">
+						<h3>Do you have a question <br> or want to become a seller?</h3>
+						<p>Fill this form and our manager will contact you next 48 hours.</p>
+					<div class="form_info">
+						<div class="form1">
+							<input type="text" placeholder="Your Name">
+							<input type="text" placeholder="Your e-mail">
+						</div>
+						<textarea placeholder="Your Messenger" name="Your Messenger" id="" cols="25" rows="7"></textarea>
+					</div>
+				</div>
+				<div class="contact_img">
+					<img src="../../assets/images/Food_delivery_cute_man_riding_motorcycles_cartoon_art_illustration 2.png" alt="">
+				</div>
 			</div>
 		</section>
 	</div>
@@ -63,7 +80,7 @@
 			activeItem: 0,
 			categories: [
 			{
-				name: "ALL",
+				name: "All",
 				value: 0,
 			},
 			{
@@ -75,7 +92,7 @@
 				value: 2,
 			},
 			{
-				name: "New",
+				name: "New",	
 				value: 3,
 			},
 			{
@@ -95,21 +112,41 @@
 			{ value: "d", text: "Middle East" },
 			],
 
-			itemx: [
+			items: [
 			{
-				number: 1,
+				image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
+				name: "Home made pizza", 
+				price: "$19",
+				rate: "4,7",
+				time: "50-79min"
 			},
 			{
-				number: 2,
+				image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
+				name: "Home made pizza", 
+				price: "$17",
+				rate: "5",
+				time: "50-60min"
 			},
 			{
-				number: 3,
+				image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
+				name: "Home made pizza", 
+				price: "$19",
+				rate: "4,7",
+				time: "50-79min"
 			},
 			{
-				number: 4,
+				image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
+				name: "Home made pizza", 
+				price: "$19",
+				rate: "4,7",
+				time: "50-79min"
 			},
 			{
-				number: 5,
+				image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
+				name: "Home made pizza", 
+				price: "$19",
+				rate: "4,7",
+				time: "50-79min"
 			},
 			],
 		};
@@ -127,6 +164,9 @@
 </script>
 
 <style scoped>
+	p{
+		margin: 0;
+	}
 	section {
 		background-color: #F7F8FA;
 	}
@@ -176,8 +216,16 @@
 	}
 
 	/* product */
-	.container{
+	.container-t{
 		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+		width: 80%;
+		margin: auto;
+		gap: 30px;
+	}
+	.product {
+		width: 23%;
 	}
 	.product__img img {
 		width: 100%;
@@ -194,25 +242,46 @@
 	.product__desc__price{
 		display: flex;
 		justify-content: space-between;
+		height: 35px;
+		font-size: 20px;
 	}
 	.product__desc__rate {
 		display: flex;
 		justify-content: space-between;
+		height: 35px;
+		font-size: 14px;
+		align-items: center;
 	}
 	.product__desc__rate__more {
 		width: 22px;
 		height: 20px;
+		color: #fff;
 		background-color: #F3BA00;
-		border: 1px solid #BEBEBE;
+		border-radius: 5px;
+	}
+	.product__desc__rate__more a{
+		color: #fff;
 	}
 	.product__desc__rate__item {
+		gap: 15px;
 		display: flex;
 	}
 	.item1 {
+		height: 23px;
 		display: flex;
+		gap: 5px;
+		align-items: center;
+		padding: 5px;
+		background-color: #F7F8FA;
+		border: 1px solid #BEBEBE;
+		border-radius: 5px;
+	}
+	.item1 p{
+		margin-top: 4px !important;
 	}
 	/* load more */
 	.button__more {
+		padding-top: 80px;
 		padding-bottom: 50px;
 	}
 	.button__load {
@@ -223,19 +292,37 @@
 		color: #929292;
 		background-color: #fff;
 	}
-	.container1 {
+	/* contact */
+	.contact{
 		display: flex;
-		flex-wrap: wrap;
-		flex-direction: row;
+		width: 80%;
+    	margin: auto;
+		padding: 50px 0 100px 0;
+		justify-content: space-between;
 	}
-	.item {
-		font-size: 2rem;
-		line-height: 1;
-		text-align: center;
-		padding: 3rem;
-		background: mistyrose;
-		border: 3px solid tomato;
-		color: tomato;
-		margin: 6px;
+	.contact_decs h3 {
+		text-align: left;
+	}
+	.contact_decs p{
+		padding-bottom: 35px;
+	}
+	.form1 {
+		display: flex;
+		gap: 16px;
+		padding-bottom: 20px;
+	}
+	input[type="text"] {
+		width: 50%;
+		border: none;
+		padding: 9px 20px;
+		border-radius: 10px;
+		border: 1px solid #bebebe5c;
+	}
+	textarea {
+		width: 100%;
+		border: none;
+		padding: 9px 20px;
+		border-radius: 10px;
+		border: 1px solid #bebebe5c;
 	}
 </style>
