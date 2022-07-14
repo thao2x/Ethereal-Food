@@ -29,11 +29,11 @@
                                         </td>
                                         <td class="shoping__cart__quantity">
                                             <div class="quantity">
-                                                <div @click="increament()">+</div>
+                                                <div class="quantity_minus" @click="uncreament()">-</div>
                                                 <div class="pro-qty">
                                                     <input type="text" v-model="count">
                                                 </div>
-                                                <div @click="uncreament()">-</div>
+                                                <div class="quantity_plus" @click="increament()">+</div>
                                             </div>
                                         </td>
                                         <td class="shoping__cart__total">
@@ -56,11 +56,11 @@
                                         </td>
                                         <td class="shoping__cart__quantity">
                                             <div class="quantity">
-                                                <div @click="increament()">+</div>
+                                                <div class="quantity_minus" @click="uncreament()">-</div>
                                                 <div class="pro-qty">
                                                     <input type="text" v-model="count">
                                                 </div>
-                                                <div @click="uncreament()">-</div>
+                                                <div class="quantity_plus" @click="increament()">+</div>
                                             </div>
                                         </td>
                                         <td class="shoping__cart__total">
@@ -83,11 +83,11 @@
                                         </td>
                                         <td class="shoping__cart__quantity">
                                             <div class="quantity">
-                                                <div class="quantity_plus" @click="increament()">+</div>
+                                                <div class="quantity_minus" @click="uncreament()">-</div>
                                                 <div class="pro-qty">
                                                     <input type="text" v-model="count">
                                                 </div>
-                                                <div class="quantity_minus" @click="uncreament()">-</div>
+                                                <div class="quantity_plus" @click="increament()">+</div>
                                             </div>
                                         </td>
                                         <td class="shoping__cart__total">
@@ -113,22 +113,24 @@
                     <div class="col-lg-6">
                         <div class="shoping__continue">
                             <div class="shoping__discount">
-                                <h5>Mã giảm giá</h5>
+                                <h5>Voucher</h5>
                                 <form action="#">
-                                    <input type="text" placeholder="Nhập mã giảm giá">
-                                    <button type="submit" class="site-btn">Áp dụng mã giảm giá</button>
+                                    <input type="text" placeholder="Voucher code">
+                                    <button type="submit" class="site-btn">Redeem</button>
                                 </form>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="shoping__checkout">
-                            <h5>Tổng tiền trong giỏ hàng</h5>
+                            <h5>Total amount in cart</h5>
                             <ul>
-                                <li>Tạm tính <span>$454.98</span></li>
-                                <li>Tổng tiền <span>$454.98</span></li>
+                                <li>Subtotal <span>$4980</span></li>
+                                <li>Shipping fee <span>$20</span></li>
+                                <li>Coupon <span>0</span></li>
+                                <li>TOTAL:  <span>5000</span></li>
                             </ul>
-                            <a href="#" class="primary-btn">THANH TOÁN</a>
+                            <a href="#" class="primary-btn">PAY ALL: 5000</a>
                         </div>
                     </div>
                 </div>
@@ -267,9 +269,21 @@ export default {
     align-items: baseline;
 }
 
+.shoping__cart__table table tbody tr td.shoping__cart__quantity .quantity_minus {
+    cursor: pointer;
+    color: #1AC073;
+    font-size: 1.4rem;
+}
+
+.shoping__cart__table table tbody tr td.shoping__cart__quantity .quantity_plus {
+    cursor: pointer;
+    color: #1AC073;
+    font-size: 1.4rem;
+}
+
 .shoping__cart__table table tbody tr td.shoping__cart__quantity {
 	width: 225px;
-    display: flex;
+    /* display: flex; */
 }
 
 .shoping__cart__table table tbody tr td.shoping__cart__quantity .pro-qty {
@@ -335,7 +349,9 @@ export default {
 	padding: 15px 30px 11px;
 	font-size: 12px;
 	letter-spacing: 4px;
-	background: #6f6f6f;
+    color: #fff;
+    border-color: #fff;
+	background: #1AC073;
 }
 
 .shoping__checkout {
@@ -343,6 +359,7 @@ export default {
 	padding: 30px;
 	padding-top: 20px;
 	margin-top: 50px;
+    text-align: left;
 }
 
 .shoping__checkout h5 {
@@ -350,6 +367,8 @@ export default {
 	font-weight: 700;
 	font-size: 20px;
 	margin-bottom: 28px;
+    text-align: center;
+
 }
 
 .shoping__checkout ul {
@@ -362,9 +381,14 @@ export default {
 	font-weight: 700;
 	list-style: none;
 	overflow: hidden;
-	border-bottom: 1px solid #ebebeb;
+	/* border-bottom: 1px solid #ebebeb; */
 	padding-bottom: 13px;
 	margin-bottom: 18px;
+}
+
+.shoping__checkout ul li:last-child {
+    border-top: 1px solid #ebebeb;
+    margin-top: 20px;
 }
 
 .shoping__checkout ul li:last-child {
@@ -379,8 +403,16 @@ export default {
 	float: right;
 }
 
-.shoping__checkout .primary-btn {
+.row .col-lg-6 .shoping__checkout .primary-btn {
 	display: block;
 	text-align: center;
+    color: #fff;
+    text-decoration: none;
+    background-color: transparent;
+    background: #1AC073;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 30%);
+    border-radius: 10px;
+    margin: auto;
+    width: 340px;
 }
 </style>
