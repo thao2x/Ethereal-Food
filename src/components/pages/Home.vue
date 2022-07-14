@@ -22,7 +22,7 @@
 						<div>{{item.offsale}}</div>
 					</div>  -->
 					<div class="product__img">
-						<img src="../../assets/images/home/unsplash_60nzTP7_hMQ.png" alt="">
+						<img to="product_details" src="../../assets/images/home/unsplash_60nzTP7_hMQ.png" alt="">
 					</div>
 					<div class="product__desc">
 						<div class="product__desc__price">
@@ -40,7 +40,7 @@
 							</div>
 							</div>
 							<div class="product__desc__rate__more">
-								<a href="/product_details">
+								<a >
 									<font-awesome-icon icon="fa-solid fa-plus" />
 								</a>
 							</div>
