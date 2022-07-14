@@ -4,6 +4,7 @@ import Login from '@/components/pages/Login'
 import Register from '@/components/pages/Register'
 import Home from '@/components/pages/Home'
 import Product_details from '@/components/pages/Product_details'
+import Payment from '@/components/pages/Payment'
 import Main from '../views/main'
 Vue.use(Router)
 
@@ -39,6 +40,11 @@ export default new Router({
 			path: '/product_details', ///path của route
 			name: 'product_details', // tên route
 			component: Product_details // component route sử dụng
+		},
+		{
+			path: '/payment', ///path của route
+			name: 'payment', // tên route
+			component: Payment // component route sử dụng
 		},
 		]
 	},
