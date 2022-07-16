@@ -237,7 +237,7 @@
 	}
 	.product__desc {
 		height: auto;
-		padding: 20px 24px;
+		padding: 20px 15px;
 		background-color: #fff;
 		border-bottom-right-radius: 10px;
 		border-bottom-left-radius: 10px;

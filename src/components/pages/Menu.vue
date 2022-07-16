@@ -19,6 +19,10 @@
 					</div>
 				</div>
 
+				<!-- <div id="app">
+					<ejs-slider id='events' :value='value' :tooltip="tooltip" :ticks="ticks" :min="min" :max="max" :renderingTicks="renderingTicks" :tooltipChange="tooltipChange"></ejs-slider>
+				</div> -->
+
 				<div class="filter">
 					<p>Recommend Restaurants</p>
 					<div class="filter--child">
@@ -98,6 +102,10 @@
 </template>
 
 <script>
+	// import Vue from "vue";
+	// import { SliderPlugin } from "@syncfusion/ej2-vue-inputs";
+	// Vue.use(SliderPlugin);
+
 	export default {
 		data() {
 			return {
@@ -163,42 +171,79 @@
 					},
 				],
 				items: [
-			{
-				image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
-				name: "Home made pizza", 
-				price: "$19",
-				rate: "4,7",
-				time: "50-79min"
-			},
-			{
-				image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
-				name: "Home made pizza", 
-				price: "$17",
-				rate: "5",
-				time: "50-60min"
-			},
-			{
-				image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
-				name: "Home made pizza", 
-				price: "$19",
-				rate: "4,7",
-				time: "50-79min"
-			},
-			{
-				image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
-				name: "Home made pizza", 
-				price: "$19",
-				rate: "4,7",
-				time: "50-79min"
-			},
-			{
-				image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
-				name: "Home made pizza", 
-				price: "$19",
-				rate: "4,7",
-				time: "50-79min"
-			},
-			],
+					{
+						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
+						name: "Home made pizza", 
+						price: "$19",
+						rate: "4,7",
+						time: "50-79min"
+					},
+					{
+						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
+						name: "Home made pizza", 
+						price: "$17",
+						rate: "5",
+						time: "50-60min"
+					},
+					{
+						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
+						name: "Home made pizza", 
+						price: "$19",
+						rate: "4,7",
+						time: "50-79min"
+					},
+					{
+						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
+						name: "Home made pizza", 
+						price: "$19",
+						rate: "4,7",
+						time: "50-79min"
+					},
+					{
+						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
+						name: "Home made pizza", 
+						price: "$19",
+						rate: "4,7",
+						time: "50-79min"
+					},
+					{
+						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
+						name: "Home made pizza", 
+						price: "$19",
+						rate: "4,7",
+						time: "50-79min"
+					},
+					{
+						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
+						name: "Home made pizza", 
+						price: "$19",
+						rate: "4,7",
+						time: "50-79min"
+					},
+					{
+						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
+						name: "Home made pizza", 
+						price: "$19",
+						rate: "4,7",
+						time: "50-79min"
+					},
+				],
+				// Minimum value
+				min: 0,
+				// Maximum value
+				max: 6,
+				// Slider current value
+				value: 2,
+				// Assigning ticks data
+				ticks: {
+					placement: 'After',
+					largeStep: 1
+				},
+				// Assigning tooltip data
+				tooltip: {
+					placement: 'Before',
+					isVisible: true
+				}
 			}
 		},
 		methods: {
@@ -214,11 +259,33 @@
 			setActive1: function (menuItem) {
 				this.activeItem1 = menuItem; // no need for Vue.set()
 			},
+			renderingTicks: function (args) {
+				// Weekdays Array
+				var daysArr = ['Sunday','Monday','Tuesday','Wednesday','Thrusday','Friday','Saturday'];
+				// Customizing each ticks text into weeksdays
+				args.text = daysArr[parseFloat(args.value)];
+			},
+			tooltipChange: function (args) {
+					// Customizing tooltip to display the Day (in numeric) of the week
+					args.text =  'Day ' + (Number(args.value) + 1).toString();
+			}
 		},
 	}
 </script>
 
 <style scoped>
+	/* @import "../node_modules/@syncfusion/ej2-base/styles/material.css";
+	@import "../node_modules/@syncfusion/ej2-vue-buttons/styles/material.css";
+	@import "../node_modules/@syncfusion/ej2-vue-popups/styles/material.css";
+	@import "../node_modules/@syncfusion/ej2-vue-inputs/styles/material.css";
+	#app {
+	height: 40px;
+	left: 30%;
+	position: absolute;
+	top: 40%;
+	width: 50%;
+	} */
+
 	p{
 		margin: 0;
 	}
@@ -317,10 +384,10 @@
 		display: flex;
 		flex-wrap: wrap;
 		flex-direction: row;
-		gap: 30px;
+		gap: 40px;
 	}
 	.product {
-		width: 31%;
+		width: 30.5%;
 	}
 	.product__img img {
 		width: 100%;
@@ -329,7 +396,7 @@
 	}
 	.product__desc {
 		height: auto;
-		padding: 20px 24px;
+		padding: 20px 15px;
 		background-color: #F6F7F8;
 		border-bottom-right-radius: 10px;
 		border-bottom-left-radius: 10px;
