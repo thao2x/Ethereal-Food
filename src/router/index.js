@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Login from '@/components/pages/Login'
 import Register from '@/components/pages/Register'
 import Home from '@/components/pages/Home'
+import Menu from '@/components/pages/Menu'
 import Product_details from '@/components/pages/Product_details'
 import Payment from '@/components/pages/Payment'
 import Main from '../views/main'
@@ -35,6 +36,11 @@ export default new Router({
 			path: '/home', ///path của route
 			name: 'home', // tên route
 			component: Home // component route sử dụng
+		},
+		{
+			path: '/menu', ///path của route
+			name: 'menu', // tên route
+			component: Menu // component route sử dụng
 		},
 		{
 			path: '/product_details', ///path của route

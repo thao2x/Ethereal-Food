@@ -21,8 +21,10 @@
 					<!-- <div v-if="item.offsale!=0">
 						<div>{{item.offsale}}</div>
 					</div>  -->
-					<div class="product__img">
-						<img to="product_details" src="../../assets/images/home/unsplash_60nzTP7_hMQ.png" alt="">
+					<div class="product__img" >
+						<router-link :to="{ name: 'product_details'}">
+  							<img src="../../assets/images/home/unsplash_60nzTP7_hMQ.png" alt="">
+						</router-link>
 					</div>
 					<div class="product__desc">
 						<div class="product__desc__price">
