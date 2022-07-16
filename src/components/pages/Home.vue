@@ -212,7 +212,8 @@
 	}
 	/*độ dài filter*/
 	.custom-select {
-		width: 250px;
+		width: 25%;
+		height: 52px;
 		display: flex;
 		border-radius: 10px;
 	}

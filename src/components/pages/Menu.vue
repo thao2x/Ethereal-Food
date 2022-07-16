@@ -11,10 +11,20 @@
 		<section class="menu__content">
 			<div class="slide__bar">
 				<div class="filter">
-					<p>filter</p>
+					<p>Filter</p>
 					<div class="filter--child">
-						<p>Trending</p>
-						<p>2</p>
+						<button type="button" class="button" :class="{ active: isActive(item.value) }" @click="setActive(item.value)" v-for="(item, index) in categories" :key="index">
+							{{ item.name }} <p>{{item.number}}</p>
+						</button>
+					</div>
+				</div>
+
+				<div class="filter">
+					<p>Recommend Restaurants</p>
+					<div class="filter--child">
+						<button type="button" class="button" :class="{ active: isActive1(item.value) }" @click="setActive1(item.value)" v-for="(item, index) in itemx" :key="index">
+							{{ item.name }} <p>{{item.number}}</p>
+						</button>
 					</div>
 				</div>
 			</div>
@@ -27,13 +37,185 @@
 						<p>Performace and design. Taken right to the edge. </p>
 					</div>
 				</div>
+				<div class="group__bar">
+					<div class="group__bar--item1">
+						<div class="group1">
+							<p>13 Items</p>
+						</div>
+						<div class="group1">
+							<p>Sort By</p>
+							<b-form-select v-model="selected" :options="options"></b-form-select>
+						</div>
+
+						<div class="group1">
+							<p>Show</p>
+							<b-form-select v-model="selected" :options="options"></b-form-select>
+						</div>
+					</div>
+
+					<div class="group__bar--item2">
+						<font-awesome-icon icon="fa-solid fa-bars" />
+					</div>
+				</div>
+
+				<div class="container-t">
+					<div class="product" v-for="(item, index) in items" :key="index" >
+						<!-- <div v-if="item.offsale!=0">
+							<div>{{item.offsale}}</div>
+						</div>  -->
+						<div class="product__img" >
+							<router-link :to="{ name: 'product_details'}">
+								<img src="../../assets/images/home/unsplash_60nzTP7_hMQ.png" alt="">
+							</router-link>
+						</div>
+						<div class="product__desc">
+							<div class="product__desc__price">
+								<span>{{item.name}}</span>
+								<p>{{item.price}}</p>
+							</div>
+							<div class="product__desc__rate">
+								<div class="product__desc__rate__item">
+								<div class="item1">
+									<font-awesome-icon icon="fa-solid fa-star" /> 
+									<p>{{item.rate}}</p>
+								</div>
+								<div class="item1">
+									<p>{{item.time}}</p>
+								</div>
+								</div>
+								<div class="product__desc__rate__more">
+									<a >
+										<font-awesome-icon icon="fa-solid fa-plus" />
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 	</div>
 </template>
 
 <script>
-
+	export default {
+		data() {
+			return {
+				activeItem: 1,
+				categories: [
+					{
+						name: "Trending",
+						value: 0,
+						number: '2',
+					},
+					{
+						name: "Asian",
+						value: 1,
+						number: '48',
+					},
+					{
+						name: "Indian",
+						value: 2,
+						number: '14',
+					},
+					{
+						name: "Western",
+						value: 3,
+						number: '15',
+					},
+					{
+						name: "African",
+						value: 4,
+						number: '23',
+					},
+					{
+						name: "European",
+						value: 5,
+						number: '1',
+					},
+					{
+						name: "Middle East",
+						value: 6,
+						number: '95',
+					},
+				],
+				activeItem1: 1,
+				itemx: [
+					{
+						name: "Bok Choy",
+						value: 0,
+						number: '99',
+					},
+					{
+						name: "Gai Lai",
+						value: 1,
+						number: '99',
+					},
+					{
+						name: "Morning Glow",
+						value: 2,
+						number: '99',
+					},
+					{
+						name: "Okra",
+						value: 3,
+						number: '99',
+					},
+				],
+				items: [
+			{
+				image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
+				name: "Home made pizza", 
+				price: "$19",
+				rate: "4,7",
+				time: "50-79min"
+			},
+			{
+				image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
+				name: "Home made pizza", 
+				price: "$17",
+				rate: "5",
+				time: "50-60min"
+			},
+			{
+				image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
+				name: "Home made pizza", 
+				price: "$19",
+				rate: "4,7",
+				time: "50-79min"
+			},
+			{
+				image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
+				name: "Home made pizza", 
+				price: "$19",
+				rate: "4,7",
+				time: "50-79min"
+			},
+			{
+				image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
+				name: "Home made pizza", 
+				price: "$19",
+				rate: "4,7",
+				time: "50-79min"
+			},
+			],
+			}
+		},
+		methods: {
+			isActive: function (menuItem) {
+				return this.activeItem === menuItem;
+			},
+			setActive: function (menuItem) {
+				this.activeItem = menuItem; // no need for Vue.set()
+			},
+			isActive1: function (menuItem) {
+				return this.activeItem1 === menuItem;
+			},
+			setActive1: function (menuItem) {
+				this.activeItem1 = menuItem; // no need for Vue.set()
+			},
+		},
+	}
 </script>
 
 <style scoped>
@@ -62,9 +244,10 @@
 		width: 80%;
 		margin: auto;
 		display: flex;
-		gap: 20px;
+		gap: 30px;
 		padding-top: 30px;
 	}
+	/* slide bar */
 	.slide__bar{
 		width: 20%;
 	}
@@ -72,15 +255,29 @@
 		background-color: #F6F7F8;
 		padding: 15px 20px;
 		text-align: left;
+		border-radius: 5px;
+		margin-bottom: 30px;
 	}
 	.filter--child{
+		display: inline-grid;
+		width: 100%;
 		padding-top: 10px;
+	}
+	button.button {
+		border: none;
+		background-color: #F6F7F8;
 		display: flex;
 		justify-content: space-between;
+		padding: 5px 0;
 	}
+	.active{
+		color: #1AC073;
+	}
+	/* group ctn */
 	.group_ctn{
 		width: 80%;
 	}
+	/* banner */
 	.group__banner{
 		position: relative;
 	}
@@ -94,5 +291,87 @@
 		left: 60px;
 		width: 50%;
 		text-align: left;
+	}
+	/* bar */
+	.group__bar{
+		display: flex;
+		background-color: #F6F7F8;
+		margin: 30px 0 40px 0;
+		height: 58px;
+		border-radius: 5px;
+	}
+	.group__bar--item1{
+		display: flex;
+		width: 80%;
+	}
+	.group__bar--item2{
+		width: 20%;
+		text-align: right;
+	}
+	.group__bar--item1 .group1 {
+		display: flex;
+		width: 20%;
+	}
+	/* product */
+	.container-t{
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+		gap: 30px;
+	}
+	.product {
+		width: 31%;
+	}
+	.product__img img {
+		width: 100%;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+	}
+	.product__desc {
+		height: auto;
+		padding: 20px 24px;
+		background-color: #F6F7F8;
+		border-bottom-right-radius: 10px;
+		border-bottom-left-radius: 10px;
+	}
+	.product__desc__price{
+		display: flex;
+		justify-content: space-between;
+		height: 35px;
+		font-size: 20px;
+	}
+	.product__desc__rate {
+		display: flex;
+		justify-content: space-between;
+		height: 35px;
+		font-size: 14px;
+		align-items: center;
+	}
+	.product__desc__rate__more {
+		width: 22px;
+		height: 20px;
+		color: #fff;
+		background-color: #F3BA00;
+		border-radius: 5px;
+	}
+	.product__desc__rate__more a{
+		color: #fff;
+	}
+	.product__desc__rate__item {
+		gap: 15px;
+		display: flex;
+	}
+	.item1 {
+		height: 23px;
+		display: flex;
+		gap: 5px;
+		align-items: center;
+		padding: 5px;
+		background-color: #F7F8FA;
+		border: 1px solid #BEBEBE;
+		border-radius: 5px;
+	}
+	.item1 p{
+		margin-top: 4px !important;
 	}
 </style>
