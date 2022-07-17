@@ -4,7 +4,7 @@
 			<div class="menu_text">
 				<p class="home">Home</p>
 				<p>/</p>
-				<p>Asian</p>
+				<p>{{categories[activeItem].name}}</p>
 			</div>
 		</section>
 
@@ -18,10 +18,15 @@
 						</button>
 					</div>
 				</div>
-
-				<!-- <div id="app">
-					<ejs-slider id='events' :value='value' :tooltip="tooltip" :ticks="ticks" :min="min" :max="max" :renderingTicks="renderingTicks" :tooltipChange="tooltipChange"></ejs-slider>
-				</div> -->
+				<span>${{ priceMin }} - ${{priceMax}}</span>
+				<MultiRangeSlider
+					:min="minValue"
+					:max="maxValue"
+					:step="1"
+					:minValue="priceMin"
+        			:maxValue="priceMax"
+					@input="UpdateValues"
+				/>
 
 				<div class="filter">
 					<p>Recommend Restaurants</p>
@@ -102,13 +107,17 @@
 </template>
 
 <script>
-	// import Vue from "vue";
-	// import { SliderPlugin } from "@syncfusion/ej2-vue-inputs";
-	// Vue.use(SliderPlugin);
-
+import MultiRangeSlider from "multi-range-slider-vue";
 	export default {
+		components: {
+			MultiRangeSlider
+		},
 		data() {
 			return {
+				minValue: 0,
+				maxValue: 999,
+				priceMin: 0,
+				priceMax: 999,
 				activeItem: 1,
 				categories: [
 					{
@@ -246,6 +255,11 @@
 				}
 			}
 		},
+		created (){
+			let n = this.maxValue / 4;
+			this.priceMin = this.minValue + n;
+			this.priceMax = this.maxValue - n;
+		},
 		methods: {
 			isActive: function (menuItem) {
 				return this.activeItem === menuItem;
@@ -259,15 +273,9 @@
 			setActive1: function (menuItem) {
 				this.activeItem1 = menuItem; // no need for Vue.set()
 			},
-			renderingTicks: function (args) {
-				// Weekdays Array
-				var daysArr = ['Sunday','Monday','Tuesday','Wednesday','Thrusday','Friday','Saturday'];
-				// Customizing each ticks text into weeksdays
-				args.text = daysArr[parseFloat(args.value)];
-			},
-			tooltipChange: function (args) {
-					// Customizing tooltip to display the Day (in numeric) of the week
-					args.text =  'Day ' + (Number(args.value) + 1).toString();
+			UpdateValues(e) {
+				this.priceMin = e.minValue;
+				this.priceMax = e.maxValue;
 			}
 		},
 	}
@@ -340,6 +348,13 @@
 	.active{
 		color: #1AC073;
 	}
+	/* ranger slide */
+	.multi-range-slider {
+		box-shadow: none;
+		border-radius: unset;
+		border: none;
+	}
+	
 	/* group ctn */
 	.group_ctn{
 		width: 80%;

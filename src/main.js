@@ -16,6 +16,7 @@ import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 /* add icons to the library */
 
+
 /* add font awesome icon component */
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 import { fas } from '@fortawesome/free-solid-svg-icons'

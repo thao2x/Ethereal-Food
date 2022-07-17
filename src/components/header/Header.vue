@@ -15,13 +15,17 @@
               <a class="nav-link p-3" href="#">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link p-3" href="#">Menu</a>
+              <router-link :to="{ name: 'menu'}">
+  							  <a class="nav-link p-3" href="#">Menu</a>
+						    </router-link>
             </li>
             <li class="nav-item">
               <a class="nav-link p-3" href="#">Contact</a>
             </li>
               <li class="nav-item">
-              <a class="nav-link p-3" href="/login">Login</a>
+                <router-link :to="{ name: 'login'}">
+  							  <a class="nav-link p-3" href="#">Login</a>
+						    </router-link>
             </li>
           </ul>
         </div>
