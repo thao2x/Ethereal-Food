@@ -73,7 +73,7 @@
 							<div>{{item.offsale}}</div>
 						</div>  -->
 						<div class="product__img" >
-							<router-link :to="{ name: 'product_details'}">
+							<router-link :to="{ name: 'product_details',query: { id: item.id }}">
 								<img src="../../assets/images/home/unsplash_60nzTP7_hMQ.png" alt="">
 							</router-link>
 						</div>
@@ -85,7 +85,7 @@
 							<div class="product__desc__rate">
 								<div class="product__desc__rate__item">
 								<div class="item1">
-									<font-awesome-icon icon="fa-solid fa-star" /> 
+									<font-awesome-icon icon="fa-solid fa-star" />
 									<p>{{item.rate}}</p>
 								</div>
 								<div class="item1">
@@ -181,57 +181,65 @@ import MultiRangeSlider from "multi-range-slider-vue";
 				],
 				items: [
 					{
-						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
-						name: "Home made pizza", 
+            id: 1,
+						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
+						name: "Home made pizza 1",
 						price: "$19",
 						rate: "4,7",
 						time: "50-79min"
 					},
 					{
-						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
-						name: "Home made pizza", 
+            id: 2,
+						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
+						name: "Home made pizza 2",
 						price: "$17",
 						rate: "5",
 						time: "50-60min"
 					},
 					{
-						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
-						name: "Home made pizza", 
+            id: 3,
+						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
+						name: "Home made pizza 3",
 						price: "$19",
 						rate: "4,7",
 						time: "50-79min"
 					},
 					{
-						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
-						name: "Home made pizza", 
+            id: 4,
+						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
+						name: "Home made pizza 4",
 						price: "$19",
 						rate: "4,7",
 						time: "50-79min"
 					},
 					{
-						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
-						name: "Home made pizza", 
+            id: 5,
+						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
+						name: "Home made pizza 5",
 						price: "$19",
 						rate: "4,7",
 						time: "50-79min"
 					},
 					{
-						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
-						name: "Home made pizza", 
+            id: 6,
+						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
+						name: "Home made pizza 6",
 						price: "$19",
 						rate: "4,7",
 						time: "50-79min"
 					},
 					{
-						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
-						name: "Home made pizza", 
+            id: 7,
+						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
+						name: "Home made pizza 7",
 						price: "$19",
 						rate: "4,7",
 						time: "50-79min"
 					},
 					{
-						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w", 
-						name: "Home made pizza", 
+            id: 8,
+						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
+						name: "Home made pizza 8",
 						price: "$19",
 						rate: "4,7",
 						time: "50-79min"
@@ -354,7 +362,7 @@ import MultiRangeSlider from "multi-range-slider-vue";
 		border-radius: unset;
 		border: none;
 	}
-	
+
 	/* group ctn */
 	.group_ctn{
 		width: 80%;

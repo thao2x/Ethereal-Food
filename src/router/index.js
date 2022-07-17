@@ -17,9 +17,11 @@ export default new Router({
 	- The component property defines the component that will be rendered when the route is active.
 	- The children property defines the child routes for the route.
 	- The redirect property defines the route that will be rendered when the path is empty. */
+  mode: 'history',
+  hash: false,
 	routes: [
 	{
-		path: '/home',
+		path: '/',
 		component: Main,
 		children: [
 		{
@@ -43,7 +45,7 @@ export default new Router({
 			component: Menu // component route sử dụng
 		},
 		{
-			path: '/product_details', ///path của route
+			path: '/detail', ///path của route
 			name: 'product_details', // tên route
 			component: Product_details // component route sử dụng
 		},
