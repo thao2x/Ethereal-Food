@@ -5,6 +5,7 @@ import Register from '@/components/pages/Register'
 import Home from '@/components/pages/Home'
 import Menu from '@/components/pages/Menu'
 import Product_details from '@/components/pages/Product_details'
+import Pay_step1 from '@/components/pages/PayStep1'
 import Payment from '@/components/pages/Payment'
 import Main from '../views/main'
 Vue.use(Router)
@@ -53,6 +54,11 @@ export default new Router({
 			path: '/payment', ///path của route
 			name: 'payment', // tên route
 			component: Payment // component route sử dụng
+		},
+		{
+			path: '/payStep1', ///path của route
+			name: 'payStep1', // tên route
+			component: Pay_step1 // component route sử dụng
 		},
 		]
 	},
