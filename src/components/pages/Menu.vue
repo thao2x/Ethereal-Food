@@ -18,15 +18,23 @@
 						</button>
 					</div>
 				</div>
-				<span>${{ priceMin }} - ${{priceMax}}</span>
-				<MultiRangeSlider
-					:min="minValue"
-					:max="maxValue"
-					:step="1"
-					:minValue="priceMin"
-        			:maxValue="priceMax"
-					@input="UpdateValues"
-				/>
+				
+				<div class="bar-ranger">
+					<p>Price</p>
+					<div class="bar-ranger-decs">
+						<p>Ranger</p>
+						<span>${{ priceMin }} - ${{priceMax}}</span>
+					</div>
+					<MultiRangeSlider
+						:min="minValue"
+						:max="maxValue"
+						:step="1"
+						:minValue="priceMin"
+						:maxValue="priceMax"
+						@input="UpdateValues"
+					/>
+				</div>
+				
 
 				<div class="filter">
 					<p>Recommend Restaurants</p>
@@ -51,12 +59,12 @@
 						<div class="group1">
 							<p>13 Items</p>
 						</div>
-						<div class="group1">
+						<div class="group2">
 							<p>Sort By</p>
 							<b-form-select v-model="selected" :options="options"></b-form-select>
 						</div>
 
-						<div class="group1">
+						<div class="group3">
 							<p>Show</p>
 							<b-form-select v-model="selected" :options="options"></b-form-select>
 						</div>
@@ -114,10 +122,12 @@ import MultiRangeSlider from "multi-range-slider-vue";
 		},
 		data() {
 			return {
-				minValue: 0,
-				maxValue: 999,
+				//multi-ranger-slider
+				minValue: 10,
+				maxValue: 300,
 				priceMin: 0,
 				priceMax: 999,
+				//
 				activeItem: 1,
 				categories: [
 					{
@@ -181,7 +191,7 @@ import MultiRangeSlider from "multi-range-slider-vue";
 				],
 				items: [
 					{
-            id: 1,
+            			id: 1,
 						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
 						name: "Home made pizza 1",
 						price: "$19",
@@ -189,7 +199,7 @@ import MultiRangeSlider from "multi-range-slider-vue";
 						time: "50-79min"
 					},
 					{
-            id: 2,
+            			id: 2,
 						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
 						name: "Home made pizza 2",
 						price: "$17",
@@ -197,7 +207,7 @@ import MultiRangeSlider from "multi-range-slider-vue";
 						time: "50-60min"
 					},
 					{
-            id: 3,
+            			id: 3,
 						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
 						name: "Home made pizza 3",
 						price: "$19",
@@ -205,7 +215,7 @@ import MultiRangeSlider from "multi-range-slider-vue";
 						time: "50-79min"
 					},
 					{
-            id: 4,
+            			id: 4,
 						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
 						name: "Home made pizza 4",
 						price: "$19",
@@ -213,7 +223,7 @@ import MultiRangeSlider from "multi-range-slider-vue";
 						time: "50-79min"
 					},
 					{
-            id: 5,
+            			id: 5,
 						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
 						name: "Home made pizza 5",
 						price: "$19",
@@ -221,7 +231,7 @@ import MultiRangeSlider from "multi-range-slider-vue";
 						time: "50-79min"
 					},
 					{
-            id: 6,
+            			id: 6,
 						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
 						name: "Home made pizza 6",
 						price: "$19",
@@ -229,7 +239,7 @@ import MultiRangeSlider from "multi-range-slider-vue";
 						time: "50-79min"
 					},
 					{
-            id: 7,
+            			id: 7,
 						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
 						name: "Home made pizza 7",
 						price: "$19",
@@ -237,7 +247,7 @@ import MultiRangeSlider from "multi-range-slider-vue";
 						time: "50-79min"
 					},
 					{
-            id: 8,
+            			id: 8,
 						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
 						name: "Home made pizza 8",
 						price: "$19",
@@ -245,22 +255,6 @@ import MultiRangeSlider from "multi-range-slider-vue";
 						time: "50-79min"
 					},
 				],
-				// Minimum value
-				min: 0,
-				// Maximum value
-				max: 6,
-				// Slider current value
-				value: 2,
-				// Assigning ticks data
-				ticks: {
-					placement: 'After',
-					largeStep: 1
-				},
-				// Assigning tooltip data
-				tooltip: {
-					placement: 'Before',
-					isVisible: true
-				}
 			}
 		},
 		created (){
@@ -281,6 +275,7 @@ import MultiRangeSlider from "multi-range-slider-vue";
 			setActive1: function (menuItem) {
 				this.activeItem1 = menuItem; // no need for Vue.set()
 			},
+			// ranger slider
 			UpdateValues(e) {
 				this.priceMin = e.minValue;
 				this.priceMax = e.maxValue;
@@ -290,18 +285,6 @@ import MultiRangeSlider from "multi-range-slider-vue";
 </script>
 
 <style scoped>
-	/* @import "../node_modules/@syncfusion/ej2-base/styles/material.css";
-	@import "../node_modules/@syncfusion/ej2-vue-buttons/styles/material.css";
-	@import "../node_modules/@syncfusion/ej2-vue-popups/styles/material.css";
-	@import "../node_modules/@syncfusion/ej2-vue-inputs/styles/material.css";
-	#app {
-	height: 40px;
-	left: 30%;
-	position: absolute;
-	top: 40%;
-	width: 50%;
-	} */
-
 	p{
 		margin: 0;
 	}
@@ -357,11 +340,25 @@ import MultiRangeSlider from "multi-range-slider-vue";
 		color: #1AC073;
 	}
 	/* ranger slide */
+	.bar-ranger{
+		background-color: #F6F7F8;
+		padding: 15px 20px;
+		text-align: left;
+		border-radius: 5px;
+		margin-bottom: 30px;
+	}
+	.bar-ranger-decs{
+		display: flex;
+		justify-content: space-between;
+		padding-top: 15px;
+    	margin-bottom: -8px;
+	}
 	.multi-range-slider {
 		box-shadow: none;
 		border-radius: unset;
 		border: none;
 	}
+	
 
 	/* group ctn */
 	.group_ctn{
@@ -389,6 +386,7 @@ import MultiRangeSlider from "multi-range-slider-vue";
 		margin: 30px 0 40px 0;
 		height: 58px;
 		border-radius: 5px;
+		padding: 15px 20px;
 	}
 	.group__bar--item1{
 		display: flex;
@@ -400,7 +398,15 @@ import MultiRangeSlider from "multi-range-slider-vue";
 	}
 	.group__bar--item1 .group1 {
 		display: flex;
-		width: 20%;
+		width: 40px;
+	}
+	.group__bar--item1 .group2{
+		display: flex;
+		width: 40px;
+	}
+	.group__bar--item1 .group3 {
+		display: flex;
+		width: 40px;
 	}
 	/* product */
 	.container-t{
