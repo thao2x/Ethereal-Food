@@ -93,7 +93,7 @@
                     <div class="col-md-12 form-group p-3">
                       <p>
                         Have an account?
-                        <a href="http://localhost:8080/#/login">Sign In</a>
+                        <router-link :to="{ name: 'login'}"> <a href="#">Login</a></router-link>
                       </p>
                     </div>
                   </div>

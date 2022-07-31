@@ -54,7 +54,10 @@
                   </div>
                   <div class="row">
                     <div class="col-md-12 form-group p-3">
-                      <p>Don't have an account? <a href="http://localhost:8080/#/register">Sign Up</a></p>
+                      <p>
+                        Don't have an account? 
+                        <router-link :to="{ name: 'register'}"> <a href="#">Register</a></router-link>
+                      </p>
                     </div>
                   </div>
                 </form>

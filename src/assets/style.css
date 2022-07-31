@@ -2,6 +2,7 @@
 	border: none !important;
 	background-color: #1AC073 !important;
 	box-shadow: none !important;
+	margin-bottom: 2px !important;
 }
 .multi-range-slider .ruler  {
 	display: none !important;

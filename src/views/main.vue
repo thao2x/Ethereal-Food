@@ -6,7 +6,7 @@
 		<footer-app />
 	</div>
 </template>
-<script>
+<script> 
 import Header from "@/components/header/Header";
 import Banner from "@/components/content/Banner";
 import Footer from "@/components/footer/Footer";
