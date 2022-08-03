@@ -105,9 +105,9 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="shoping__cart__btns">
-                            <a href="#" class="primary-btn cart-btn">Tiếp tục mua sắm</a>
+                            <a href="#" class="primary-btn cart-btn">Keep shopping</a>
                             <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
-                                Cập nhật giỏ hàng</a>
+                                Update cart</a>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -128,7 +128,7 @@
                                 <li>Subtotal <span>$4980</span></li>
                                 <li>Shipping fee <span>$20</span></li>
                                 <li>Coupon <span>0</span></li>
-                                <li>TOTAL:  <span>5000</span></li>
+                                <li>TOTAL:  <span>$5000</span></li>
                             </ul>
                             <a href="#" class="primary-btn">PAY ALL: 5000</a>
                         </div>
