@@ -22,3 +22,7 @@
 .multi-range-slider .labels{
 	display: none !important;
 }
+
+.b-sidebar{
+	width: 500px !important;
+  }
