@@ -105,14 +105,13 @@
 			selected: null,
 			options: [
 			{ value: null, text: "Filters" },
-			{ value: "a", text: "Skin Care" },
-			{ value: "b", text: "Suncream" },
-			{ value: { C: "3PO" }, text: "Hair Care" },
-			{ value: "d", text: "Mask" },
-			{ value: "d", text: "Cleanser" },
-			{ value: "d", text: "Shower gel" },
-			{ value: "d", text: "Cleansing" },
-			{ value: "d", text: "Functional foods" },
+			{ value: "a", text: "Trending" },
+			{ value: "b", text: "Asian" },
+			{ value: { C: "3PO" }, text: "Indian" },
+			{ value: "d", text: "Western" },
+			{ value: "d", text: "African" },
+			{ value: "d", text: "European" },
+			{ value: "d", text: "Middile East" },
 			],
 
 			items: [
