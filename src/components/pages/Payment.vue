@@ -75,11 +75,8 @@
                                 <li>Subtotal  <span> ${{subtotal}}</span></li>
                                 <li>Shipping fee <span>$20</span></li>
                                 <li>Coupon <span>0</span></li>
-<<<<<<< HEAD
                                 <li>TOTAL:  <span>$5000</span></li>
-=======
                                 <li>TOTAL:  <span>${{subtotal-20}}</span></li>
->>>>>>> 81f5574ab86b64421d44b36513bb768e51d05bfe
                             </ul>
                             <a href="#" data-toggle="modal" data-target="#exampleModalLong" class="primary-btn">PAY ALL: ${{subtotal-20}}</a>
                         </div>

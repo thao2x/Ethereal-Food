@@ -61,12 +61,12 @@
 						</div>
 						<div class="group2">
 							<p>Sort By</p>
-							<b-form-select v-model="selected" :options="options"></b-form-select>
+							<b-form-select v-model="selected1" :options="options1"></b-form-select>
 						</div>
 
 						<div class="group3">
 							<p>Show</p>
-							<b-form-select v-model="selected" :options="options"></b-form-select>
+							<b-form-select v-model="selected2" :options="options2"></b-form-select>
 						</div>
 					</div>
 
@@ -200,7 +200,7 @@ import MultiRangeSlider from "multi-range-slider-vue";
 					},
 					{
             			id: 2,
-						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
+						image: "https://drive.google.com/drive/folders/1_70DlHrtx_zrwxbUYJkvvMqF5NQg2zDD",
 						name: "Home made pizza 2",
 						price: "$17",
 						rate: "5",
@@ -255,7 +255,19 @@ import MultiRangeSlider from "multi-range-slider-vue";
 						time: "50-79min"
 					},
 				],
-			}
+				selected1: null,
+				options1: [
+					{ value: null, text: "Name" },
+					{ value: "a", text: "Price" },
+					{ value: "b", text: "Rate" },
+				],
+				selected2: null,
+				options2: [
+					{ value: null, text: "12" },
+					{ value: "a", text: "9" },
+					{ value: "a", text: "6" },
+				],
+				}
 		},
 		created (){
 			let n = this.maxValue / 4;
@@ -390,6 +402,7 @@ import MultiRangeSlider from "multi-range-slider-vue";
 	}
 	.group__bar--item1{
 		display: flex;
+		gap: 15px;
 		width: 80%;
 	}
 	.group__bar--item2{
@@ -398,15 +411,34 @@ import MultiRangeSlider from "multi-range-slider-vue";
 	}
 	.group__bar--item1 .group1 {
 		display: flex;
-		width: 40px;
+		align-items: center;
+		width: 10%;
 	}
 	.group__bar--item1 .group2{
 		display: flex;
-		width: 40px;
+		gap: 5px;
+		align-items: center;
+		width: 25%;
+	}
+	.group__bar--item1 .group2 p{
+		width: 45%;
+	}
+	.group__bar--item1 .group2 select#__BVID__14 {
+		width: 50%;
+		height: 34px;
 	}
 	.group__bar--item1 .group3 {
 		display: flex;
-		width: 40px;
+		gap: 5px;
+		align-items: center;
+		width: 20%;
+	}
+	.group__bar--item1 .group3 p{
+		width: 45%;
+	}
+	.group__bar--item1 .group3 select#__BVID__15 {
+		width: 50%;
+		height: 34px;
 	}
 	/* product */
 	.container-t{

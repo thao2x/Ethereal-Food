@@ -281,7 +281,7 @@
                     },
                     {
                     id: 2,
-                    image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
+                    image: "https://drive.google.com/drive/folders/1_70DlHrtx_zrwxbUYJkvvMqF5NQg2zDD",
                     name: "Home made pizza 2",
                     price: "$17",
                     sale_price: '$10',
