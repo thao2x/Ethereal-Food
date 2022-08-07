@@ -332,46 +332,6 @@
         this.items = this.items.find(({ id }) => id === Number(current_id));
         },
     }
-
-    /*---------------------------------
-    Product Details Pic Slider
-    ----------------------------------*/
-
-
-    // $( document ).ready(function() {
-    //     $(".product__details__pic__slider").owlCarousel({
-    //         loop: true,
-    //         margin: 20,
-    //         items: 5,
-    //         dots: true,
-    //         smartSpeed: 1200,
-    //         autoHeight: false,
-    //         autoplay: true
-    //     });
-    // });
-
-
-    /*-------------------
-        Quantity change
-    --------------------- */
-    // var proQty = $('.pro-qty');
-    // proQty.prepend('<span class="dec qtybtn">-</span>');
-    // proQty.append('<span class="inc qtybtn">+</span>');
-    // proQty.on('click', '.qtybtn', function () {
-    //     var $button = $(this);
-    //     var oldValue = $button.parent().find('input').val();
-    //     if ($button.hasClass('inc')) {
-    //         var newVal = parseFloat(oldValue) + 1;
-    //     } else {
-    //         // Don't allow decrementing below zero
-    //         if (oldValue > 0) {
-    //             var newVal = parseFloat(oldValue) - 1;
-    //         } else {
-    //             newVal = 0;
-    //         }
-    //     }
-    //     $button.parent().find('input').val(newVal);
-    // });
 </script>
 
 <style>

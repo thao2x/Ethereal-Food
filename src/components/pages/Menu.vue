@@ -22,7 +22,7 @@
 				<div class="bar-ranger">
 					<p>Price</p>
 					<div class="bar-ranger-decs">
-						<p>Ranger</p>
+						<p>Ranger:</p>
 						<span>${{ priceMin }} - ${{priceMax}}</span>
 					</div>
 					<MultiRangeSlider
@@ -82,7 +82,7 @@
 						</div>  -->
 						<div class="product__img" >
 							<router-link :to="{ name: 'product_details',query: { id: item.id }}">
-								<img src="../../assets/images/home/unsplash_60nzTP7_hMQ.png" alt="">
+								<img :src="item.image" alt="">
 							</router-link>
 						</div>
 						<div class="product__desc">
@@ -192,64 +192,88 @@ import MultiRangeSlider from "multi-range-slider-vue";
 				items: [
 					{
             			id: 1,
-						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
-						name: "Home made pizza 1",
+						image: "https://images.theconversation.com/files/368263/original/file-20201109-22-lqiq5c.jpg?ixlib=rb-1.1.0&rect=10%2C0%2C6699%2C4476&q=45&auto=format&w=926&fit=clip",
+						name: "Mixed Salad",
 						price: "$19",
 						rate: "4,7",
 						time: "50-79min"
 					},
 					{
             			id: 2,
-						image: "https://drive.google.com/drive/folders/1_70DlHrtx_zrwxbUYJkvvMqF5NQg2zDD",
-						name: "Home made pizza 2",
+						image: "https://img.dominos.vn/Kid-mania.jpg",
+						name: "Pizza Eggs",
 						price: "$17",
 						rate: "5",
 						time: "50-60min"
 					},
 					{
             			id: 3,
-						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
-						name: "Home made pizza 3",
+						image: "https://149777215.v2.pressablecdn.com/wp-content/uploads/2020/03/dsm-avocado-blueberry-salad-shutterstock_1682267701-1000x667.jpg",
+						name: "Avocado & Bulueberry Salad",
 						price: "$19",
 						rate: "4,7",
 						time: "50-79min"
 					},
 					{
             			id: 4,
-						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
-						name: "Home made pizza 4",
+						image: "https://saigoncantho.com.vn/wp-content/uploads/2021/07/domino-pizza.jpg",
+						name: "Pizza Hawaii",
 						price: "$19",
 						rate: "4,7",
 						time: "50-79min"
 					},
 					{
             			id: 5,
-						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
-						name: "Home made pizza 5",
+						image: "https://rosybluhome.com/wp-content/uploads/2013/07/bread-salad-3-1-1000x667.jpg ",
+						name: "Grilled garlic bread salad",
 						price: "$19",
 						rate: "4,7",
 						time: "50-79min"
 					},
 					{
             			id: 6,
-						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
-						name: "Home made pizza 6",
+						image: "https://img.dominos.vn/Extravaganza.jpg",
+						name: "Mushrooms",
 						price: "$19",
 						rate: "4,7",
 						time: "50-79min"
 					},
 					{
             			id: 7,
-						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
-						name: "Home made pizza 7",
+						image: "https://img.dominos.vn/pizza-lap-xuong2.jpg",
+						name: "Cheese Pizza",
 						price: "$19",
 						rate: "4,7",
 						time: "50-79min"
 					},
 					{
             			id: 8,
-						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
-						name: "Home made pizza 8",
+						image: "https://deifratelli.com/wp-content/uploads/2022/01/Latin-Potato-Salad-1000x667-1.jpg",
+						name: "Latin Potato Salad",
+						price: "$19",
+						rate: "4,7",
+						time: "50-79min"
+					},
+					{
+            			id: 9,
+						image: "https://img.dominos.vn/Veggie-mania.jpg",
+						name: "Vegetarian",
+						price: "$19",
+						rate: "4,7",
+						time: "50-79min"
+					},
+					{
+            			id: 10,
+						image: "https://www.recipewinners.com/wp-content/uploads/2019/12/IMG_4086-scaled-1000x667.jpg",
+						name: "Mango & Onion Salad",
+						price: "$19",
+						rate: "4,7",
+						time: "50-79min"
+					},
+					{
+            			id: 11,
+						image: "https://kinhdofood.com/wp-content/uploads/2022/06/Cach-an-Hamburger-hoan-hao-img_62a696f4828d4-1000x667.png",
+						name: "Hamburger Avocado",
 						price: "$19",
 						rate: "4,7",
 						time: "50-79min"
@@ -418,10 +442,10 @@ import MultiRangeSlider from "multi-range-slider-vue";
 		display: flex;
 		gap: 5px;
 		align-items: center;
-		width: 25%;
+		width: 27%;
 	}
 	.group__bar--item1 .group2 p{
-		width: 45%;
+		width: 50%;
 	}
 	.group__bar--item1 .group2 select#__BVID__14 {
 		width: 50%;
@@ -467,6 +491,12 @@ import MultiRangeSlider from "multi-range-slider-vue";
 		justify-content: space-between;
 		height: 35px;
 		font-size: 20px;
+	}
+	.product__desc__price span {
+		font-size: 16px;
+	}
+	.product__desc__price p {
+		font-size: 16px;
 	}
 	.product__desc__rate {
 		display: flex;
