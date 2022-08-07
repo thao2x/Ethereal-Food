@@ -7,7 +7,7 @@
                         <div class="product__details__pic">
                             <div class="product__details__pic__item">
                                 <img class="product__details__pic__item--large"
-                                    src="../../assets/images/unsplash_sejqj6Eaqe8.png" alt="">
+                                    :src="items.image" alt="">
                             </div>
                             <div class="product__details__pic__slider owl-carousel">
                                 <img data-imgbigurl="img/product/details/product-details-3.jpg"
@@ -142,127 +142,127 @@
                     { value: "b", text: "Small" },
                 ],
                 items: [
-                        {
-                        id: 1,
-                        image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
-                        name: "Home made pizza 1",
-                        price: "$20",
-                        sale_price: '$10',
-                        off_sale: '50%',
-                        short_description:'Food is one of the best things about life.',
-                        description:'Food is one of the best things about life. For those of us who are learning English, we probably want to travel and try all of the different foods from other countries. So when we’re telling our friends and family about all of the amazing food we ate, we want to be able to describe it in great detail. Let’s take a look at how we can do just that. ',
-                        availability:'Active',
-                        shipping: '2km',
-                        category: 'Pizza',
-                        rate: "4,7",
-                        time: "50-79min"
-                        },
-                        {
-                        id: 2,
-                        image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
-                        name: "Home made pizza 2",
-                        price: "$17",
-                        sale_price: '$10',
-                        off_sale: '50%',
-                        short_description:'Food is one of the best things about life.',
-                        description:'Food is one of the best things about life. For those of us who are learning English, we probably want to travel and try all of the different foods from other countries. So when we’re telling our friends and family about all of the amazing food we ate, we want to be able to describe it in great detail. Let’s take a look at how we can do just that. ',
-                        availability:'Active',
-                        shipping: '2km',
-                        category: 'Pizza',
-                        rate: "5",
-                        time: "50-60min"
-                        },
-                        {
-                        id: 3,
-                        image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
-                        name: "Home made pizza 3",
-                        price: "$19",
-                        sale_price: '$10',
-                        off_sale: '50%',
-                        short_description:'Food is one of the best things about life.',
-                        description:'Food is one of the best things about life. For those of us who are learning English, we probably want to travel and try all of the different foods from other countries. So when we’re telling our friends and family about all of the amazing food we ate, we want to be able to describe it in great detail. Let’s take a look at how we can do just that. ',
-                        availability:'Active',
-                        shipping: '2km',
-                        category: 'Pizza',
-                        rate: "4,7",
-                        time: "50-79min"
-                        },
-                        {
-                        id: 4,
-                        image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
-                        name: "Home made pizza 4",
-                        price: "$19",
-                        sale_price: '$10',
-                        off_sale: '50%',
-                        short_description:'Food is one of the best things about life.',
-                        description:'Food is one of the best things about life. For those of us who are learning English, we probably want to travel and try all of the different foods from other countries. So when we’re telling our friends and family about all of the amazing food we ate, we want to be able to describe it in great detail. Let’s take a look at how we can do just that. ',
-                        availability:'Active',
-                        shipping: '2km',
-                        category: 'Pizza',
-                        rate: "4,7",
-                        time: "50-79min"
-                        },
-                        {
-                        id: 5,
-                        image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
-                        name: "Home made pizza 5",
-                        price: "$19",
-                        sale_price: '$10',
-                        off_sale: '50%',
-                        short_description:'Food is one of the best things about life.',
-                        description:'Food is one of the best things about life. For those of us who are learning English, we probably want to travel and try all of the different foods from other countries. So when we’re telling our friends and family about all of the amazing food we ate, we want to be able to describe it in great detail. Let’s take a look at how we can do just that. ',
-                        availability:'Active',
-                        shipping: '2km',
-                        category: 'Pizza',
-                        rate: "4,7",
-                        time: "50-79min"
-                        },
-                        {
-                        id: 6,
-                        image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
-                        name: "Home made pizza 6",
-                        price: "$19",
-                        sale_price: '$10',
-                        off_sale: '50%',
-                        short_description:'Food is one of the best things about life.',
-                        availability:'Active',
-                        description:'Food is one of the best things about life. For those of us who are learning English, we probably want to travel and try all of the different foods from other countries. So when we’re telling our friends and family about all of the amazing food we ate, we want to be able to describe it in great detail. Let’s take a look at how we can do just that. ',
-                        shipping: '2km',
-                        category: 'Pizza',
-                        rate: "4,7",
-                        time: "50-79min"
-                        },
-                        {
-                        id: 7,
-                        image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
-                        name: "Home made pizza 7",
-                        price: "$19",
-                        sale_price: '$10',
-                        off_sale: '50%',
-                        short_description:'Food is one of the best things about life.',
-                        availability:'Active',
-                        description:'Food is one of the best things about life. For those of us who are learning English, we probably want to travel and try all of the different foods from other countries. So when we’re telling our friends and family about all of the amazing food we ate, we want to be able to describe it in great detail. Let’s take a look at how we can do just that. ',
-                        shipping: '2km',
-                        category: 'Pizza',
-                        rate: "4,7",
-                        time: "50-79min"
-                        },
-                        {
-                        id: 8,
-                        image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
-                        name: "Home made pizza 8",
-                        price: "$19",
-                        sale_price: '$10',
-                        off_sale: '50%',
-                        short_description:'Food is one of the best things about life.',
-                        availability:'Active',
-                        description:'Food is one of the best things about life. For those of us who are learning English, we probably want to travel and try all of the different foods from other countries. So when we’re telling our friends and family about all of the amazing food we ate, we want to be able to describe it in great detail. Let’s take a look at how we can do just that. ',
-                        shipping: '2km',
-                        category: 'Pizza',
-                        rate: "4,7",
-                        time: "50-79min"
-                        },
-                    ],
+					{
+						id: 1,
+						image: "https://images.theconversation.com/files/368263/original/file-20201109-22-lqiq5c.jpg?ixlib=rb-1.1.0&rect=10%2C0%2C6699%2C4476&q=45&auto=format&w=926&fit=clip",
+						name: "Mixed Salad",
+						price: "$20",
+						sale_price: '$10',
+						off_sale: '50%',
+						short_description:'Food is one of the best things about life.',
+						description:'Food is one of the best things about life. For those of us who are learning English, we probably want to travel and try all of the different foods from other countries. So when we’re telling our friends and family about all of the amazing food we ate, we want to be able to describe it in great detail. Let’s take a look at how we can do just that. ',
+						availability:'Active',
+						shipping: '2km',
+						category: 'Pizza',
+						rate: "4,7",
+						time: "50-79min"
+					},
+					{
+						id: 2,
+						image: "https://img.dominos.vn/Kid-mania.jpg",
+						name: "Pizza Eggs",
+						price: "$17",
+						sale_price: '$10',
+						off_sale: '50%',
+						short_description:'Food is one of the best things about life.',
+						description:'Food is one of the best things about life. For those of us who are learning English, we probably want to travel and try all of the different foods from other countries. So when we’re telling our friends and family about all of the amazing food we ate, we want to be able to describe it in great detail. Let’s take a look at how we can do just that. ',
+						availability:'Active',
+						shipping: '2km',
+						category: 'Pizza',
+						rate: "5",
+						time: "50-60min"
+					},
+					{
+						id: 3,
+						image: "https://149777215.v2.pressablecdn.com/wp-content/uploads/2020/03/dsm-avocado-blueberry-salad-shutterstock_1682267701-1000x667.jpg",
+						name: "Avocado & Bulueberry Salad",
+						price: "$19",
+						sale_price: '$10',
+						off_sale: '50%',
+						short_description:'Food is one of the best things about life.',
+						description:'Food is one of the best things about life. For those of us who are learning English, we probably want to travel and try all of the different foods from other countries. So when we’re telling our friends and family about all of the amazing food we ate, we want to be able to describe it in great detail. Let’s take a look at how we can do just that. ',
+						availability:'Active',
+						shipping: '2km',
+						category: 'Pizza',
+						rate: "4,7",
+						time: "50-79min"
+					},
+					{
+						id: 4,
+						image: "https://saigoncantho.com.vn/wp-content/uploads/2021/07/domino-pizza.jpg",
+						name: "Pizza Hawaii",
+						price: "$19",
+						sale_price: '$10',
+						off_sale: '50%',
+						short_description:'Food is one of the best things about life.',
+						description:'Food is one of the best things about life. For those of us who are learning English, we probably want to travel and try all of the different foods from other countries. So when we’re telling our friends and family about all of the amazing food we ate, we want to be able to describe it in great detail. Let’s take a look at how we can do just that. ',
+						availability:'Active',
+						shipping: '2km',
+						category: 'Pizza',
+						rate: "4,7",
+						time: "50-79min"
+					},
+					{
+            			id: 5,
+						image: "https://rosybluhome.com/wp-content/uploads/2013/07/bread-salad-3-1-1000x667.jpg ",
+						name: "Grilled garlic bread salad",
+						price: "$19",
+						sale_price: '$10',
+						off_sale: '50%',
+						short_description:'Food is one of the best things about life.',
+						description:'Food is one of the best things about life. For those of us who are learning English, we probably want to travel and try all of the different foods from other countries. So when we’re telling our friends and family about all of the amazing food we ate, we want to be able to describe it in great detail. Let’s take a look at how we can do just that. ',
+						availability:'Active',
+						shipping: '2km',
+						category: 'Pizza',
+						rate: "4,7",
+						time: "50-79min"
+					},
+					{
+						id: 6,
+						image: "https://img.dominos.vn/Extravaganza.jpg",
+						name: "Mushrooms",
+						price: "$19",
+						sale_price: '$10',
+						off_sale: '50%',
+						short_description:'Food is one of the best things about life.',
+						availability:'Active',
+						description:'Food is one of the best things about life. For those of us who are learning English, we probably want to travel and try all of the different foods from other countries. So when we’re telling our friends and family about all of the amazing food we ate, we want to be able to describe it in great detail. Let’s take a look at how we can do just that. ',
+						shipping: '2km',
+						category: 'Pizza',
+						rate: "4,7",
+						time: "50-79min"
+					},
+					{
+						id: 7,
+						image: "https://img.dominos.vn/pizza-lap-xuong2.jpg",
+						name: "Cheese Pizza",
+						price: "$19",
+						sale_price: '$10',
+						off_sale: '50%',
+						short_description:'Food is one of the best things about life.',
+						availability:'Active',
+						description:'Food is one of the best things about life. For those of us who are learning English, we probably want to travel and try all of the different foods from other countries. So when we’re telling our friends and family about all of the amazing food we ate, we want to be able to describe it in great detail. Let’s take a look at how we can do just that. ',
+						shipping: '2km',
+						category: 'Pizza',
+						rate: "4,7",
+						time: "50-79min"
+					},
+					{
+						id: 8,
+						image: "https://deifratelli.com/wp-content/uploads/2022/01/Latin-Potato-Salad-1000x667-1.jpg",
+						name: "Latin Potato Salad",
+						price: "$19",
+						sale_price: '$10',
+						off_sale: '50%',
+						short_description:'Food is one of the best things about life.',
+						availability:'Active',
+						description:'Food is one of the best things about life. For those of us who are learning English, we probably want to travel and try all of the different foods from other countries. So when we’re telling our friends and family about all of the amazing food we ate, we want to be able to describe it in great detail. Let’s take a look at how we can do just that. ',
+						shipping: '2km',
+						category: 'Pizza',
+						rate: "4,7",
+						time: "50-79min"
+					},
+			],
                 item_relate: [
                     {
                     id: 1,
@@ -356,7 +356,7 @@
 }
 
 .product__details__pic__item img {
-    min-width: 100%;
+    width: 100%;
 }
 
 .product__details__pic__slider img {
