@@ -18,10 +18,10 @@
                                 <tbody>
                                     <tr v-for="(item, index) in dataCart" :key="index">
                                         <td class="shoping__cart__item">
-                                            <img src="../../assets/images/unsplash_60nzTP7_hMQ.png" alt="">
+                                            <img :src="item.image" :alt="item.image">
                                             <div class="shoping__cart__item-header">
                                                 <h4>{{item.name}}</h4>
-                                                <h5>{{item.description}}</h5>
+                                                <h5>{{item.short_description}}</h5>
                                             </div>
                                         </td>
                                         <td class="shoping__cart__price">
@@ -32,7 +32,7 @@
                                                 <div class="quantity_minus" @click="uncreament(item.id)">-</div>
                                                 <div class="pro-qty">
 
-                                                    <input type="tet" v-model="dataCart[index].quantity">
+                                                    <input type="tet" v-model="item.qty">
                                                 </div>
                                                 <div class="quantity_plus" @click="increament(item.id)">+</div>
                                             </div>
@@ -75,7 +75,6 @@
                                 <li>Subtotal  <span> ${{subtotal}}</span></li>
                                 <li>Shipping fee <span>$20</span></li>
                                 <li>Coupon <span>0</span></li>
-                                <li>TOTAL:  <span>$5000</span></li>
                                 <li>TOTAL:  <span>${{subtotal-20}}</span></li>
                             </ul>
                             <a href="#" data-toggle="modal" data-target="#exampleModalLong" class="primary-btn">PAY ALL: ${{subtotal-20}}</a>
@@ -155,63 +154,39 @@ export default {
       return {
         count: 1,
         dataCart :[
-					{
-            id: 1,
-						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
-						name: "Home made pizza 12’",
-            quantity: 1,
-						price: 10,
-            afterPrice: 10,
-						description: 'beef patties, Iceberg lettuce, American cheese, pickles, ...'
-					},
-          {
-            id: 2,
-						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
-						name: "Home made pizza 12’",
-            quantity: 1,
-            price: 12,
-						afterPrice: 12,
-						description: 'beef patties, Iceberg lettuce, American cheese, pickles, ...'
-					},
-          {
-            id: 3,
-						image: "https://drive.google.com/drive/folders/1lJTnCbfcppROLQbGfsc3aLW15yQCIU8w",
-						name: "Home made pizza 12’",
-            quantity: 1,
-						price: 15,
-            afterPrice: 15,
-						description: 'beef patties, Iceberg lettuce, American cheese, pickles, ...'
-					}
         ],
-        subtotal : 0
+        subtotal : 0,
       };
 		},
     mounted(){
-      this.SubtotalPlus();
+      if(localStorage.getItem("cart")){
+        this.dataCart = JSON.parse(localStorage.getItem("cart"));
+      }
+        this.SubtotalPlus();
     },
 		computed: {
     },
 		methods: {
 			increament(id){
                 var objIndex = this.dataCart.findIndex((obj => obj.id == id));// Tìm kiếm id của món ăn
-                if(this.dataCart[objIndex].quantity>=1){
-                    this.dataCart[objIndex].quantity++;
-                    this.dataCart[objIndex].afterPrice = this.dataCart[objIndex].price * this.dataCart[objIndex].quantity;
+                if(this.dataCart[objIndex].qty>=1){
+                    this.dataCart[objIndex].qty++;
+                    this.dataCart[objIndex].afterPrice = this.dataCart[objIndex].price * this.dataCart[objIndex].qty;
                     this.SubtotalPlus();
                 }
       },
       uncreament(id){
                 var objIndex = this.dataCart.findIndex((obj => obj.id == id));// Tìm kiếm id của món ăn
-                if(this.dataCart[objIndex].quantity>1){
-                    this.dataCart[objIndex].quantity--;
-                    this.dataCart[objIndex].afterPrice=this.dataCart[objIndex].price * this.dataCart[objIndex].quantity;
+                if(this.dataCart[objIndex].qty>1){
+                    this.dataCart[objIndex].qty--;
+                    this.dataCart[objIndex].afterPrice=this.dataCart[objIndex].price * this.dataCart[objIndex].qty;
                     this.SubtotalPlus();
                 }
       },
       SubtotalPlus(){
         this.subtotal = 0;
         for (let index = 0; index < this.dataCart.length; index++) {
-          this.subtotal += this.dataCart[index].price * this.dataCart[index].quantity;
+          this.subtotal += this.dataCart[index].price * this.dataCart[index].qty;
         }
       }
 		},

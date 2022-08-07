@@ -37,8 +37,8 @@
                             </div>
                             <div class="product__details__separation"></div>
                             <div class="product__details__money">
-                                <div class="product__details__price">{{items.price}}</div>
-                                <div class="product__details__cost">{{items.sale_price}}</div>
+                                <div class="product__details__price">${{items.price}}</div>
+                                <div class="product__details__cost">${{items.sale_price}}</div>
                                 <div class="product__details__discount">{{items.off_sale}}</div>
                             </div>
                             <p>{{items.short_description}}</p>
@@ -61,7 +61,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#" class="primary-btn">Add To Cart</a>
+                            <a href="#" @click="added(items)" class="primary-btn">Add To Cart</a>
                             <a href="#" class="heart-icon"><font-awesome-icon icon="fa-solid fa-heart" /></a>
                         </div>
                     </div>
@@ -132,9 +132,22 @@
 </template>
 
 <script>
+    function findById(arr, id) {
+      // Tìm vị trí sản phẩm
+      return arr.find((x) => x.id === id);
+    }
     export default {
         data() {
             return {
+                cart: [], // Mảng chứa đa ta giỏ hàng
+                cartadd: {
+                  id: "",
+                  name: "",
+                  price: "",
+                  image: "",
+                  short_description: "",
+                  afterPrice: ""
+                },// Dữ liệu được thêm vào giỏ hàng
                 selected: null,
                 options: [
                     { value: null, text: "Large" },
@@ -146,8 +159,8 @@
 						id: 1,
 						image: "https://images.theconversation.com/files/368263/original/file-20201109-22-lqiq5c.jpg?ixlib=rb-1.1.0&rect=10%2C0%2C6699%2C4476&q=45&auto=format&w=926&fit=clip",
 						name: "Mixed Salad",
-						price: "$20",
-						sale_price: '$10',
+						price: 20,
+						sale_price: 10,
 						off_sale: '50%',
 						short_description:'Food is one of the best things about life.',
 						description:'Food is one of the best things about life. For those of us who are learning English, we probably want to travel and try all of the different foods from other countries. So when we’re telling our friends and family about all of the amazing food we ate, we want to be able to describe it in great detail. Let’s take a look at how we can do just that. ',
@@ -161,8 +174,8 @@
 						id: 2,
 						image: "https://img.dominos.vn/Kid-mania.jpg",
 						name: "Pizza Eggs",
-						price: "$17",
-						sale_price: '$10',
+						price: 17,
+						sale_price: 10,
 						off_sale: '50%',
 						short_description:'Food is one of the best things about life.',
 						description:'Food is one of the best things about life. For those of us who are learning English, we probably want to travel and try all of the different foods from other countries. So when we’re telling our friends and family about all of the amazing food we ate, we want to be able to describe it in great detail. Let’s take a look at how we can do just that. ',
@@ -176,8 +189,8 @@
 						id: 3,
 						image: "https://149777215.v2.pressablecdn.com/wp-content/uploads/2020/03/dsm-avocado-blueberry-salad-shutterstock_1682267701-1000x667.jpg",
 						name: "Avocado & Bulueberry Salad",
-						price: "$19",
-						sale_price: '$10',
+						price: 19,
+						sale_price: 10,
 						off_sale: '50%',
 						short_description:'Food is one of the best things about life.',
 						description:'Food is one of the best things about life. For those of us who are learning English, we probably want to travel and try all of the different foods from other countries. So when we’re telling our friends and family about all of the amazing food we ate, we want to be able to describe it in great detail. Let’s take a look at how we can do just that. ',
@@ -191,8 +204,8 @@
 						id: 4,
 						image: "https://saigoncantho.com.vn/wp-content/uploads/2021/07/domino-pizza.jpg",
 						name: "Pizza Hawaii",
-						price: "$19",
-						sale_price: '$10',
+						price: 19,
+						sale_price: 10,
 						off_sale: '50%',
 						short_description:'Food is one of the best things about life.',
 						description:'Food is one of the best things about life. For those of us who are learning English, we probably want to travel and try all of the different foods from other countries. So when we’re telling our friends and family about all of the amazing food we ate, we want to be able to describe it in great detail. Let’s take a look at how we can do just that. ',
@@ -206,8 +219,8 @@
             			id: 5,
 						image: "https://rosybluhome.com/wp-content/uploads/2013/07/bread-salad-3-1-1000x667.jpg ",
 						name: "Grilled garlic bread salad",
-						price: "$19",
-						sale_price: '$10',
+						price: 19,
+						sale_price: 10,
 						off_sale: '50%',
 						short_description:'Food is one of the best things about life.',
 						description:'Food is one of the best things about life. For those of us who are learning English, we probably want to travel and try all of the different foods from other countries. So when we’re telling our friends and family about all of the amazing food we ate, we want to be able to describe it in great detail. Let’s take a look at how we can do just that. ',
@@ -221,8 +234,8 @@
 						id: 6,
 						image: "https://img.dominos.vn/Extravaganza.jpg",
 						name: "Mushrooms",
-						price: "$19",
-						sale_price: '$10',
+						price: 19,
+						sale_price: 10,
 						off_sale: '50%',
 						short_description:'Food is one of the best things about life.',
 						availability:'Active',
@@ -236,8 +249,8 @@
 						id: 7,
 						image: "https://img.dominos.vn/pizza-lap-xuong2.jpg",
 						name: "Cheese Pizza",
-						price: "$19",
-						sale_price: '$10',
+						price: 19,
+						sale_price: 10,
 						off_sale: '50%',
 						short_description:'Food is one of the best things about life.',
 						availability:'Active',
@@ -251,8 +264,8 @@
 						id: 8,
 						image: "https://deifratelli.com/wp-content/uploads/2022/01/Latin-Potato-Salad-1000x667-1.jpg",
 						name: "Latin Potato Salad",
-						price: "$19",
-						sale_price: '$10',
+						price: 19,
+						sale_price: 10,
 						off_sale: '50%',
 						short_description:'Food is one of the best things about life.',
 						availability:'Active',
@@ -331,6 +344,50 @@
         var current_id = this.$route.query.id;
         this.items = this.items.find(({ id }) => id === Number(current_id));
         },
+         methods:{
+          viewCart() {
+            if (localStorage.getItem("cart")) {
+              this.cart = JSON.parse(localStorage.getItem("cart"));
+              // this.badge = this.cart.length;
+              // this.totalprice = this.cart.reduce((total, item) => {
+              //   return total + item.qty * item.price;
+              // }, 0);
+            }
+            this.$router.push({name: 'payment'})
+          },
+          added(item) {
+            // when user choose a buy, this function add that in cart
+            var itemm = findById(this.cart, item.id);
+            if (itemm !== undefined) {
+              itemm.qty += 1;
+              this.saveCats();
+            } else {
+              if(localStorage.getItem("cart")){
+                this.cart = JSON.parse(localStorage.getItem("cart"));
+              }else{
+                this.cart = [];
+              }
+              // cartadd is here to get all things that click or chosen by user
+              this.cartadd.id = item.id;
+              this.cartadd.name = item.name;
+              this.cartadd.price = item.price;
+              this.cartadd.image = item.image;
+              this.cartadd.short_description = item.short_description;
+              this.cartadd.afterPrice = item.price;
+              this.cartadd.qty = 1;
+              this.cart.push(this.cartadd);
+              console.log(this.cart);
+              // this.cartadd = {};
+              this.saveCats(); // this function most important to save all inform of products
+            }
+          },
+          saveCats() {
+            // for save in local storage set the below code
+            let parsed = JSON.stringify(this.cart);
+            localStorage.setItem("cart", parsed);
+            this.viewCart(); // by this function we can see all products are save in web
+          },
+        }
     }
 </script>
 
