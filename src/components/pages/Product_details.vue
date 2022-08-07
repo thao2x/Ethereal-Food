@@ -57,7 +57,7 @@
                             <div class="product__details__quantity">
                                 <div class="quantity">
                                     <div class="pro-qty">
-                                        <input type="text" value="1">
+                                        <input type="text" v-model="qty">
                                     </div>
                                 </div>
                             </div>
@@ -148,6 +148,7 @@
                   short_description: "",
                   afterPrice: ""
                 },// Dữ liệu được thêm vào giỏ hàng
+                qty: 1, //Số lượng mua sản phẩm ban đầu
                 selected: null,
                 options: [
                     { value: null, text: "Large" },
@@ -356,17 +357,18 @@
             this.$router.push({name: 'payment'})
           },
           added(item) {
+            if(localStorage.getItem("cart")){
+                this.cart = JSON.parse(localStorage.getItem("cart"));
+            }else{
+                this.cart = [];
+            }
             // when user choose a buy, this function add that in cart
             var itemm = findById(this.cart, item.id);
             if (itemm !== undefined) {
-              itemm.qty += 1;
+              itemm.qty = itemm.qty + Number(this.qty);
+              console.log(this.qty);
               this.saveCats();
             } else {
-              if(localStorage.getItem("cart")){
-                this.cart = JSON.parse(localStorage.getItem("cart"));
-              }else{
-                this.cart = [];
-              }
               // cartadd is here to get all things that click or chosen by user
               this.cartadd.id = item.id;
               this.cartadd.name = item.name;
@@ -374,7 +376,7 @@
               this.cartadd.image = item.image;
               this.cartadd.short_description = item.short_description;
               this.cartadd.afterPrice = item.price;
-              this.cartadd.qty = 1;
+              this.cartadd.qty = Number(this.qty);
               this.cart.push(this.cartadd);
               console.log(this.cart);
               // this.cartadd = {};

@@ -33,7 +33,7 @@
         </div>
         <div class="icon col-lg-3">
           <a href=""><font-awesome-icon icon="fa-solid fa-magnifying-glass icon_search" class="p-3"/></a>
-            <a v-b-toggle.sidebar-right><font-awesome-icon icon="fa-solid fa-cart-arrow-down icon_cart" class="p-3" /></a>
+            <a @click="getData()" v-b-toggle.sidebar-right><font-awesome-icon icon="fa-solid fa-cart-arrow-down icon_cart" class="p-3" /></a>
 			      <b-sidebar id="sidebar-right" right shadow>
               <h1>Your Cart</h1>
               <div class="cart">
@@ -47,13 +47,13 @@
                 </div>
               </div>
               <div class="cart__line"></div>
-              <div class="cart__items">
+              <div v-for="(item, index) in dataCart" :key="index" class="cart__items">
                 <div class="cart__items__img">
-                  <img src="../../assets/images/pizza2.png" alt="">
+                  <img :src="item.image" :alt="item.image">
                   <div class="cart__items__text">
                     <div class="text__1">
-                      <h5>Home made pizza 12’</h5>
-                      <p>beef patties, Iceberg lettuce, American cheese, pickles, ...</p>
+                      <h5>{{item.name}}</h5>
+                      <p>{{item.short_description}}</p>
                     </div>
                     <div class="text__2">
                       <p>Added by you</p>
@@ -63,20 +63,20 @@
 
                 <div class="cart__items__desc">
                   <div class="cart__items__desc--price">
-                    <p>$20</p>
+                    <p>${{item.afterPrice*item.qty}}</p>
                   </div>
                   <div class="quantity">
-                      <div class="quantity_minus" @click="uncreament()">-</div>
+                      <div class="quantity_minus" @click="uncreament(item.id)">-</div>
                       <div class="pro-qty">
-                          <input type="text" v-model="count">
+                          <input type="text" v-model="item.qty">
                       </div>
-                      <div class="quantity_plus" @click="increament()">+</div>
+                      <div class="quantity_plus" @click="increament(item.id)">+</div>
                   </div>
                   <div class="cart__items__desc--unit">
-                    <p>$10</p>
+                    <p>${{item.price}}</p>
                   </div>
                 </div>
-                
+
                 <div class="cart__items__button">
 
                 </div>
@@ -100,15 +100,35 @@ components: {
 },
 data() {
   return {
-
+    dataCart : [],
   };
 },
-created() {
+mounted() {
 
 },
 methods: {
-
-},
+    increament(id){
+      var objIndex = this.dataCart.findIndex((obj => obj.id == id));// Tìm kiếm id của món ăn
+      if(this.dataCart[objIndex].qty>=1){
+         this.dataCart[objIndex].qty++;
+        // this.dataCart[objIndex].afterPrice = this.dataCart[objIndex].price * this.dataCart[objIndex].qty;
+        this.SubtotalPlus();
+      }
+    },
+    uncreament(id){
+      var objIndex = this.dataCart.findIndex((obj => obj.id == id));// Tìm kiếm id của món ăn
+      if(this.dataCart[objIndex].qty>1){
+          this.dataCart[objIndex].qty--;
+          // this.dataCart[objIndex].afterPrice=this.dataCart[objIndex].price * this.dataCart[objIndex].qty;
+          this.SubtotalPlus();
+      }
+    },
+    getData(){
+      if(localStorage.getItem("cart")){
+          this.dataCart = JSON.parse(localStorage.getItem("cart"));
+      }
+    }
+  },
 };
 </script>
 
@@ -135,7 +155,7 @@ padding: 0;
 		height: 100%;
 		overflow-y: auto;
 	}
-	
+
 	.modal.left .modal-body,
 	.modal.right .modal-body {
 		padding: 15px 15px 80px;
@@ -147,7 +167,7 @@ padding: 0;
 		     -o-transition: opacity 0.3s linear, right 0.3s ease-out;
 		        transition: opacity 0.3s linear, right 0.3s ease-out;
 	}
-	
+
 	.modal.right.fade.in .modal-dialog {
 		right: 0;
 	}
@@ -201,7 +221,7 @@ color: #ffffff;
   margin-bottom: 40px;
 }
 .cart__items{
-  padding: 0 20px;
+  padding: 10px 20px;
   display: flex;
 }
 .cart__items__img{

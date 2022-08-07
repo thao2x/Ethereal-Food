@@ -16,7 +16,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="(item, index) in dataCart" :key="index">
+                                    <tr v-for="(item, index) in dataCheckout" :key="index">
+                                      <router-link :to="{ name: 'product_details',query: { id: item.id }}">
                                         <td class="shoping__cart__item">
                                             <img :src="item.image" :alt="item.image">
                                             <div class="shoping__cart__item-header">
@@ -24,8 +25,9 @@
                                                 <h5>{{item.short_description}}</h5>
                                             </div>
                                         </td>
+                                      </router-link>
                                         <td class="shoping__cart__price">
-                                            {{item.afterPrice}}$
+                                            {{item.afterPrice*item.qty}}$
                                         </td>
                                         <td class="shoping__cart__quantity">
                                             <div class="quantity">
@@ -55,6 +57,8 @@
                             <a href="#" class="primary-btn cart-btn">Keep shopping</a>
                             <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
                                 Update cart</a>
+                             <a href="#" @click="removeCart()" class="primary-btn cart-btn cart-btn-del cart-btn-right"><span class="icon_loading"></span>
+                                Remove cart</a>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -165,13 +169,16 @@ export default {
         this.SubtotalPlus();
     },
 		computed: {
+      dataCheckout(){
+        return this.dataCart;
+      }
     },
 		methods: {
 			increament(id){
                 var objIndex = this.dataCart.findIndex((obj => obj.id == id));// Tìm kiếm id của món ăn
                 if(this.dataCart[objIndex].qty>=1){
                     this.dataCart[objIndex].qty++;
-                    this.dataCart[objIndex].afterPrice = this.dataCart[objIndex].price * this.dataCart[objIndex].qty;
+                    // this.dataCart[objIndex].afterPrice = this.dataCart[objIndex].price * this.dataCart[objIndex].qty;
                     this.SubtotalPlus();
                 }
       },
@@ -179,9 +186,15 @@ export default {
                 var objIndex = this.dataCart.findIndex((obj => obj.id == id));// Tìm kiếm id của món ăn
                 if(this.dataCart[objIndex].qty>1){
                     this.dataCart[objIndex].qty--;
-                    this.dataCart[objIndex].afterPrice=this.dataCart[objIndex].price * this.dataCart[objIndex].qty;
+                    // this.dataCart[objIndex].afterPrice=this.dataCart[objIndex].price * this.dataCart[objIndex].qty;
                     this.SubtotalPlus();
                 }
+      },
+      removeCart(){
+         if(localStorage.getItem("cart")){
+          localStorage.clear();
+          this.dataCart = [];
+        }
       },
       SubtotalPlus(){
         this.subtotal = 0;
@@ -345,7 +358,9 @@ export default {
 	padding: 14px 30px 12px;
 	background: #f5f5f5;
 }
-
+.cart-btn-del{
+  background: #dbc1c1 !important;
+}
 .primary-btn.cart-btn span {
 	font-size: 14px;
 }
