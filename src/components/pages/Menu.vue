@@ -278,6 +278,14 @@ import MultiRangeSlider from "multi-range-slider-vue";
 						rate: "4,7",
 						time: "50-79min"
 					},
+					{
+            			id: 12,
+						image: "https://images.theconversation.com/files/368263/original/file-20201109-22-lqiq5c.jpg?ixlib=rb-1.1.0&rect=10%2C0%2C6699%2C4476&q=45&auto=format&w=926&fit=clip",
+						name: "Mixed Salad",
+						price: "$19",
+						rate: "4,7",
+						time: "50-79min"
+					},
 				],
 				selected1: null,
 				options1: [
@@ -470,6 +478,7 @@ import MultiRangeSlider from "multi-range-slider-vue";
 		flex-wrap: wrap;
 		flex-direction: row;
 		gap: 40px;
+		justify-content: space-between;
 	}
 	.product {
 		width: 30.5%;

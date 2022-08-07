@@ -311,6 +311,7 @@
 		width: 80%;
 		margin: auto;
 		gap: 30px;
+		justify-content: space-between;
 	}
 	.product {
 		width: 23%;
